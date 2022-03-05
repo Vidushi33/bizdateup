@@ -19,16 +19,16 @@ const Progress = ({ location: { pathname } }) => {
             <div>1</div>
             <div>
               {isSecondStep || isThirdStep || isFourthStep ? (
-                <Link to="/">Step 1</Link>
+                <Link to="/">Register</Link>
               ) : (
-                'Step 1'
+                'Register'
               )}
             </div>
           </div>
           <div className={`${isSecondStep ? 'step active' : 'step'}`}>
             <div>2</div>
             <div>
-              {isFourthStep || isThirdStep ? <Link to="/second">Step 2</Link> : 'Step 2'}
+              {isFourthStep || isThirdStep ? <Link to="/second">Details</Link> : 'Details'}
             </div>
           </div>
           {/* <div className={`${isFourthStep ? 'step active' : 'step'}`}>
@@ -39,7 +39,7 @@ const Progress = ({ location: { pathname } }) => {
           </div> */}
           <div className={`${pathname === '/third' ? 'step active' : 'step'}`}>
             <div>3</div>
-            <div>Step 3</div>
+            <div>Declaration</div>
           </div>
         </div>
       ) : (

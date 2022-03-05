@@ -3,12 +3,15 @@ import { Col, Container, Row, Badge} from "reactstrap";
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card' ; 
 import Button from 'react-bootstrap/Button' ; 
+import { useEffect } from "react";
+
 
 //import images
 import Img1 from '../assets/images/features/img-1.png';
 import HomeUrl from '../assets/images/home-border.png';
 import img from '../assets/images/users/img.jpg' ; 
 import details from '../pages/Startups/Details' ; 
+
 
 export default class Deals extends Component {
   constructor(props) {
@@ -18,6 +21,10 @@ export default class Deals extends Component {
     };
     console.log(this.state.pricing) ;               
   }
+  
+
+  
+
   render() {
     return (
       <React.Fragment>

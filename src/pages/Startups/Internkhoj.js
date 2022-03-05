@@ -1,10 +1,19 @@
-import React, { Component } from "react";
-import { Col, Container, Form, FormGroup, Input, Label, Row, Badge, Button} from "reactstrap";
+import React, { Component, useState } from "react";
+import {
+  Col,
+  Container,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+  Badge,
+  Button,
+} from "reactstrap";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import HomeUrl from '../../assets/images/home-border.png';
-
+import HomeUrl from "../../assets/images/home-border.png";
 
 // Importing Section
 import Navbar from "../../component/Navbar/NavBar";
@@ -12,16 +21,38 @@ import Clients from "./Clients";
 import Footer from "../../component/Footer/Footer";
 import details from "./Details";
 
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+
 const Content = (props) => {
+  const items = [
+    // { id: 1, idnm: "home", navheading: "Home" },
+    // { id: 3, idnm: "services", navheading: "Services" },
+    // { id: 4, idnm: "pricing", navheading: "Pricing" },
+    // { id: 5, idnm: "team", navheading: "Team" },
+    // { id: 6, idnm: "clients", navheading: "Clients" },
+    // { id: 7, idnm: "contact", navheading: "Contact" },
+  ];
+
+  const [navItems, setNavItems] = useState(items);
+  const [pos, setPos] = useState(document.documentElement.scrollTop);
+  const [imglight, setImgLight] = useState(false);
+  const [navClass, setNavClass] = useState("");
+  const [fixTop, setFixTop] = useState(true);
+  
+
+  //number of pages in PDF
+  const [numPages, setNumPages] = useState(null);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
+
   // const ID = '1';
-  const startup = details.find(
-    (st) => (
-      st.id === props.id
-      )
-  )
+  const startup = details.find((st) => st.id === props.id);
   return (
     <React.Fragment>
-      <section className="section bg-services" id="services">
+     
+      <section className="section " id="services">
       <Container>
         <Row className="align-items-center mt-5 pt-4" id="counter">
           <Col lg={6}>
@@ -38,24 +69,49 @@ const Content = (props) => {
               <p className="text-muted mt-3">
                 {startup.description}
 </p>
-              <div className="mt-4 pt-1">
-                <div className="team-social mt-4 pt-2">
-                  <ul className="list-inline mb-0">
-                    <li className="list-inline-item">
-                    <Link to="" className="btn btn-outline-primary" style={{fontSize: '17px', marginRight: '10px'}}>INVEST</Link>
-                    </li>
-                    <li className="list-inline-item">
-                      <Link to="#" className="text-reset"><i className="mdi mdi-facebook"></i></Link>
-                    </li>
-                    <li className="list-inline-item">
-                      <Link to="#" className="text-reset"><i className="mdi mdi-twitter"></i></Link>
-                    </li>
-                    <li className="list-inline-item">
-                      <Link to="#" className="text-reset"><i className="mdi mdi-google"></i></Link>
-                    </li>
-                    <li className="list-inline-item">
+<div className="mt-4 pt-1">
+                  <div className="team-social mt-4 pt-2">
+                    <ul className="list-inline mb-0">
+                      <li className="list-inline-item">
+                        <Link
+                          to=""
+                          className="btn btn-outline-primary"
+                          style={{ fontSize: "17px", marginRight: "10px" }}
+                        >
+                          INVEST
+                        </Link>
+                      </li>
+
+                      <li className="list-inline-item">
+                        <Link
+                          to={startup.facebook}
+                          target="_blank"
+                          className="text-reset"
+                        >
+                          <i className="mdi mdi-facebook"></i>
+                        </Link>
+                      </li>
+                      <li className="list-inline-item">
+                        <Link
+                          to={startup.twitter}
+                          target="_blank"
+                          className="text-reset"
+                        >
+                          <i className="mdi mdi-twitter"></i>
+                        </Link>
+                      </li>
+                      <li className="list-inline-item">
+                        <Link
+                          to={startup.gmail}
+                          target="_blank"
+                          className="text-reset"
+                        >
+                          <i className="mdi mdi-google"></i>
+                        </Link>
+                      </li>
+                    {/* <li className="list-inline-item">
                       <Link to="#" className="text-reset"><i className="mdi mdi-pinterest"></i></Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div> 
              
@@ -74,8 +130,9 @@ const Content = (props) => {
         
       </Container>
     </section>
+    <section>
    
-
+    </section>
 <section className="section" id="pricing">
 <Container>
 <Row className="mt-5 pt-4">
@@ -93,7 +150,7 @@ const Content = (props) => {
                       <p className="mb-2 f-18">Founder</p>
                       
                       <h4 className="f-20">{startup.foundername}</h4>
-                      <p className="mb-2 f-18">Hie I am the founder of the website and Internkhoj is the website</p>
+                      <p className="mb-2 f-18">Hi I am the founder of the website and Internkhoj is the website</p>
                       
                     
                     
@@ -102,7 +159,7 @@ const Content = (props) => {
                     <div className="team-social mt-4 pt-2">
                   <ul className="list-inline mb-0">
                     <li className="list-inline-item">
-                      <Link to="#" className="text-reset"><i className="mdi mdi-facebook"></i></Link>
+                      <Link to="{item.ins}" className="text-reset"><i className="mdi mdi-facebook"></i></Link>
                     </li>
                     <li className="list-inline-item">
                       <Link to="#" className="text-reset"><i className="mdi mdi-twitter"></i></Link>
@@ -185,7 +242,151 @@ const Content = (props) => {
             </Container>
             </section>
 
-<Container>
+            <section>
+            <Container>
+              <Row>
+                <Col lg={12}>
+                  <div className="title-box text-center">
+                    <h3 className="title-heading mt-4">Pitch Deck</h3>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+            </section>
+
+            {startup.pitch ? (
+        <>
+          <div
+            style={{
+              marginBottom: "10rem",
+              marginTop: "3rem",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Document
+              file={startup.pitch}
+              onLoadSuccess={onDocumentLoadSuccess}
+            >
+              {Array.from(new Array(numPages), (el, index) => (
+                <Page pageNumber={index + 1} style={{ padding: 0 }} />
+              ))}
+            </Document>
+          </div>
+        </>
+      ) : (
+        <>
+          <Container
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+            }}
+          >
+            <Badge
+              href="#startuproblem"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Problem
+            </Badge>
+            <Badge
+              href="#startupsolution"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Solution
+            </Badge>
+            <Badge
+              href="#startupproduct"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Product
+            </Badge>
+            <Badge
+              href="#startuptraction"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Traction
+            </Badge>
+            <Badge
+              href="#startupcustomers"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Customers
+            </Badge>
+            <Badge
+              href="#startupmodel"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Business Model
+            </Badge>
+            <Badge
+              href="#startupcompetition"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Competition
+            </Badge>
+            <Badge
+              href="#startupfundusage"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Usage of funds
+            </Badge>
+            <Badge
+              href="#startupvision"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Vision
+            </Badge>
+            <Badge
+              href="#startupexit"
+              style={{
+                fontSize: "17px",
+                margin: "7px",
+                backgroundColor: "#252552",
+              }}
+            >
+              Exit
+            </Badge>
+          </Container>
+
+
+{/* <Container>
             <Badge href='/startuproblem' color="info" style={{fontSize: '17px', marginRight: '10px'}}>Problem</Badge>
             <Badge color="info" style={{fontSize: '17px', marginRight: '10px'}}>Solution</Badge>
             <Badge color="info" style={{fontSize: '17px', marginRight: '10px'}}>Product</Badge>
@@ -197,121 +398,189 @@ const Content = (props) => {
             <Badge color="info" style={{fontSize: '17px', marginRight: '10px'}}>Vision</Badge>
             <Badge color="info" style={{fontSize: '17px', marginRight: '10px'}}>Exit</Badge>
    
-   </Container>        
+   </Container>         */}
             
      
 
-    <section className="section" id="contact">
-    <Container>
-        <Row>
-          <Col lg={12}>
-            <div className="title-box text-center">
-              <h3 className="title-heading mt-4">Pitch Deck</h3>  
-            </div>
-          </Col>
-        </Row>
-        
-      </Container>
-      <Container>
-      <Row> <Col lg={12}> <div className="title-box text-left"> 
-      <h3 className="title-heading mt-4" id='startuproblem'>Problem</h3> 
-      <p className="text-muted f-17 mt-3">
-      
-      {startup.problem}
-       </p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
-        <Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-            Solution
-        </h3> <p className="text-muted f-17 mt-3">
-        {startup.solution}
+            <section className="section" id="contact">
+            <Container>
+              <Row>
+                <Col lg={12}>
+                  <div className="title-box text-center">
+                    <h3 className="title-heading mt-4">Pitch Deck</h3>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+            <Container>
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    <h3 className="title-heading mt-4" id="startuproblem">
+                      Problem
+                    </h3>
+                    <p className="text-muted f-17 mt-3">{startup.problem}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupsolution">
+                      Solution
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">{startup.solution}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
 
- </p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupproduct">
+                      Product
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">{startup.product}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
 
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Product
-</h3> <p className="text-muted f-17 mt-3">
-{startup.product}
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startuptraction">
+                      Traction
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">{startup.traction}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
 
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupcustomers">
+                      Customers
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">{startup.customers}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupmodel">
+                      Business Model
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">
+                      {startup.businessmodel}
+                    </p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
 
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupcompetition">
+                      Competition
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">
+                      {startup.competition}
+                    </p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
 
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Traction 
-</h3> <p className="text-muted f-17 mt-3">
-{startup.traction}
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupfundusage">
+                      Usage Of Funds
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">{startup.fundsusage}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
 
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Customers 
-</h3> <p className="text-muted f-17 mt-3">
-{startup.customers}
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Business Model
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupvision">
+                      Vision
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">{startup.vision}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
 
-</h3> <p className="text-muted f-17 mt-3">
-{startup.businessmodel}
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
+              <Row>
+                {" "}
+                <Col lg={12}>
+                  {" "}
+                  <div className="title-box text-left">
+                    {" "}
+                    <h3 className="title-heading mt-4" id="startupexit">
+                      Exit
+                    </h3>{" "}
+                    <p className="text-muted f-17 mt-3">{startup.exit}</p>{" "}
+                    <img src={HomeUrl} height="15" className="mt-3" alt="" />{" "}
+                  </div>{" "}
+                </Col>{" "}
+              </Row>
+            </Container>
+          </section>
+        </>
+      )}
+    </React.Fragment>
+  );
+};
 
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Competition
-
-
-</h3> <p className="text-muted f-17 mt-3">
-{startup.competition}
-
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
-
-
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Usage Of Funds
-
-
-</h3> <p className="text-muted f-17 mt-3">
-{startup.fundsusage}
-
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
-
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Vision 
-
-
-</h3> <p className="text-muted f-17 mt-3">
-{startup.vision}
-
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
-
-<Row> <Col lg={12}> <div className="title-box text-left"> <h3 className="title-heading mt-4">
-Exit 
-
-
-</h3> <p className="text-muted f-17 mt-3">
-{startup.exit}
-
-
-</p> <img src={HomeUrl} height="15" className="mt-3" alt="" /> </div> </Col> </Row>
-
-
-      </Container>
-    </section>
-  </React.Fragment>
-  ) ; 
-}
-
-
-
-const Startups = ({match}) => {
-    
-    return (
-      <React.Fragment>
-          {/* Importing Navbar */}
-          <Content id={match.params.id} />
-          {/* Importing Clients */}
-          {/* <Clients /> */}
-
-          {/* Importing Footer */}
-          <Footer />
-
-      </React.Fragment>
-    );
-  }
+const Startups = ({ match }) => {
+  return (
+    <React.Fragment>
+      {/* Importing Navbar */}
+      <Content id={match.params.id} />
+      {/* Importing Clients */}
+      {/* <Clients /> */}
+      {/* Importing Footer */}
+      <Footer />
+    </React.Fragment>
+  );
+};
 export default Startups;

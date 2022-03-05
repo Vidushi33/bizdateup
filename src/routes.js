@@ -12,7 +12,11 @@ import ContactUs from "./pages/ContactUs";
 import Deal from "../src/pages/Deals";
 import Privacy from '../src/pages/Privacy';
 import Terms from '../src/pages/Terms';
+import Risk from '../src/pages/Risk';
+import Refundpolicy from '../src/pages/Refundpolicy';
+import Dashboard from '../src/pages/Dashboard';
 import Startups from "../src/pages/Startups/Internkhoj";
+import Profile from "../src/component/Profile";
 
 ///////////////////////////////////////////////////////////////
 // import {
@@ -34,9 +38,14 @@ const routes = [
   { path: "/Privacy", component: Privacy },
   { path: "/Terms", component: Terms },
   { path: "/Deals", component: Deal},
+  { path: "/Risk", component: Risk},
+  { path: "/Refundpolicy", component: Refundpolicy},
+  { path: "/Dashboard", component: Dashboard},
   { path: "/Internkhoj", component: Startups},
   { path: "/startup/:id", component: Startups},
+  { path: "/Profile", component: Profile },
   { path: "/", component: Layout1 },
+  
 ];
 
 // const Routes =()=>{

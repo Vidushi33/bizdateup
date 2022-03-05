@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Form, Button } from "react-bootstrap";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Form, Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
-import Progress from "./Progress";
-import { Link } from "react-router-dom";
+
 
 const SecondStep = (props) => {
   //const [designation, setDesignation] = useState([]);
@@ -12,7 +11,7 @@ const SecondStep = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   // const [selectedDesignation, setSelectedDesignation] = useState('');
-  const [selectedGender, setSelectedGender] = useState("");
+  const [selectedGender, setSelectedGender] = useState('');
 
   const { user } = props;
   const { register, handleSubmit, errors } = useForm({
@@ -21,40 +20,42 @@ const SecondStep = (props) => {
       age: user.age,
       pan: user.pan,
       aadhar: user.aadhar,
-    },
+    }
   });
 
   let designation = [
     {
-      id: 1,
-      name: "Founder",
+      id: 1 ,
+      name: 'Founder'
     },
     {
-      id: 2,
-      name: "Co-founder",
+      id: 2 ,
+      name: 'Co-founder'
     },
     {
       id: 3,
-      name: "Professional",
+      name: 'Professional'
     },
     {
-      id: 4,
-      name: "Freelancer",
+      id: 4 ,
+      name: 'Freelancer'
     },
+  
   ];
+
 
   let gender = [
     {
-      id: 1,
-      name: "Male",
+      id: 1 ,
+      name: 'Male'
     },
     {
-      id: 2,
-      name: "Female",
+      id: 2 ,
+      name: 'Female'
     },
     {
       id: 3,
-      name: "Other",
+      name: 'Other'
     },
   ];
 
@@ -97,41 +98,46 @@ const SecondStep = (props) => {
 
     getGender();
   }, []);
+  
+
+
+
+
 
   const onSubmit = (data) => {
     const updatedData = {
-      // designations: designation.find(
-      //   (designation) => {
-      //     return (designation.id == selectedDesignation)
-      //   }
-      // )?.name,
-      genders: gender.find((gender) => {
-        return gender.id == selectedGender;
-      })?.name,
-    };
-    // console.log(designation);
-    console.log(gender);
-    console.log(updatedData.designations);
-    console.log(updatedData.genders);
+        // designations: designation.find(
+        //   (designation) => { 
+        //     return (designation.id == selectedDesignation)
+        //   }
+        // )?.name,
+        genders: gender.find(
+          (gender) => {
+            return (gender.id == selectedGender)}
+        )?.name,
+      };
+      // console.log(designation);
+      console.log(gender);
+      console.log(updatedData.designations);
+      console.log(updatedData.genders);
 
     props.updateUser({
-      ...data,
-      ...updatedData,
-    });
-    //console.log(props) ;
-    props.history.push("/third");
+        ...data,
+        ...updatedData
+      });
+    //console.log(props) ; 
+    props.history.push('/third');
   };
 
   return (
     <Form className="input-form" onSubmit={handleSubmit(onSubmit)}>
       <motion.div
-        className="col-md-9 offset-md-2 multi-step-form"
-        initial={{ x: "-100vw" }}
+        className="col-md-6 offset-md-3"
+        initial={{ x: '-100vw' }}
         animate={{ x: 0 }}
         transition={{ stiffness: 150 }}
       >
-        <Progress />
-        <Form.Group controlId="phone">
+         <Form.Group controlId="phone">
           <Form.Label>Mobile No.</Form.Label>
           <Form.Control
             type="text"
@@ -139,16 +145,17 @@ const SecondStep = (props) => {
             placeholder="Enter your mobile number"
             autoComplete="off"
             ref={register({
-              required: "Mobile number is required.",
+              required: 'Mobile number is required.',
               pattern: {
-                value:
-                  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i,
-                message: "Mobile number should be of 10 digits",
-              },
+                value: /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i,
+                message: 'Mobile number should be of 10 digits'
+              }
             })}
-            className={`${errors.phone ? "input-error" : ""}`}
+            className={`${errors.phone ? 'input-error' : ''}`}
           />
-          {errors.phone && <p className="errorMsg">{errors.phone.message}</p>}
+          {errors.phone && (
+            <p className="errorMsg">{errors.phone.message}</p>
+          )}
         </Form.Group>
 
         <Form.Group controlId="pan">
@@ -159,15 +166,17 @@ const SecondStep = (props) => {
             placeholder="Enter your PAN number"
             autoComplete="off"
             ref={register({
-              required: "PAN number is required.",
+              required: 'PAN number is required.',
               pattern: {
-                value: /([A-Z]){5}([0-9]){4}([A-Z]){1}$/,
-                message: "PAN number is invalid",
-              },
+                value:  /([A-Z]){5}([0-9]){4}([A-Z]){1}$/,
+                message: 'PAN number is invalid'
+              }
             })}
-            className={`${errors.pan ? "input-error" : ""}`}
+            className={`${errors.pan ? 'input-error' : ''}`}
           />
-          {errors.pan && <p className="errorMsg">{errors.pan.message}</p>}
+          {errors.pan && (
+            <p className="errorMsg">{errors.pan.message}</p>
+          )}
         </Form.Group>
 
         <Form.Group controlId="aadhar">
@@ -178,15 +187,17 @@ const SecondStep = (props) => {
             placeholder="XXXX XXXX XXXX"
             autoComplete="off"
             ref={register({
-              required: "aadhar number is required.",
+              required: 'aadhar number is required.',
               pattern: {
                 value: /^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/,
-                message: "aadhar is not a valid one",
-              },
+                message: 'aadhar is not a valid one'
+              }
             })}
-            className={`${errors.aadhar ? "input-error" : ""}`}
+            className={`${errors.aadhar ? 'input-error' : ''}`}
           />
-          {errors.aadhar && <p className="errorMsg">{errors.aadhar.message}</p>}
+          {errors.aadhar && (
+            <p className="errorMsg">{errors.aadhar.message}</p>
+          )}
         </Form.Group>
 
         <Form.Group controlId="age">
@@ -197,15 +208,17 @@ const SecondStep = (props) => {
             placeholder="age"
             autoComplete="off"
             ref={register({
-              required: "age is required.",
+              required: 'age is required.',
               pattern: {
                 value: /^\d+$/,
-                message: "Should be number",
-              },
+                message: 'Should be number'
+              }
             })}
-            className={`${errors.age ? "input-error" : ""}`}
+            className={`${errors.age ? 'input-error' : ''}`}
           />
-          {errors.age && <p className="errorMsg">{errors.age.message}</p>}
+          {errors.age && (
+            <p className="errorMsg">{errors.age.message}</p>
+          )}
         </Form.Group>
         {/* <Form.Group controlId="designation">
           {isLoading && (
@@ -245,25 +258,9 @@ const SecondStep = (props) => {
           </Form.Control>
         </Form.Group>
 
-        <p
-          style={{ fontSize: "15px", textAlign: "center", marginTop: "1.3rem" }}
-        >
-          Already have an account ?{" "}
-          <span>
-            <Link
-              to="/Login"
-              style={{ textDecoration: "none", color: "#E67E22" }}
-            >
-              <strong>Login</strong>
-            </Link>
-          </span>
-        </p>
-
-        <div style={{ textAlign: "center" }}>
-          <Button variant="primary" type="submit">
-            Next
-          </Button>
-        </div>
+        <Button variant="primary" type="submit">
+          Next
+        </Button>
       </motion.div>
     </Form>
   );

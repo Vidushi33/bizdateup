@@ -15,55 +15,61 @@ export default class Services extends Component {
           id: '1',
           extraclass: '',
           start: 25,
-          end: 49,
-          title: "Employees",
-          description: 'Aliquam egestas vehicula sapien cibus sit amet rutrum dolor molestie.'
+          end: 100,
+          title: "Startups",
+          description: 'startups onboard.'
         },
         {
           id: '2',
           extraclass: 'pt-3',
           start: 25,
-          end: 76,
-          title: "Projects",
-          description: 'Pellentesque habitant morbi malesuada fames ac turpis egestas.'
+          end: 150,
+          title: "Matches",
+          description: 'founders met their ideal co-founders!'
         },
         {
           id: '3',
           extraclass: 'pt-3',
           start: 25,
-          end: 99,
-          title: "CLIENTS",
-          description: 'Suspendisse congue risus consequat sapien potitor risus tincidunt.'
+          end: 999,
+          title: "Investors",
+          description: 'investors have made their decisions already! '
         },
       ],
       services: [
         {
           id: 'service1',
-          icon: 'mdi-google',
+          icon: 'mdi-account-arrow-right',
           title: "Signup and get started",
           description: "Create a profile and answer a questionnaire based on your skills. "
         },
         {
           id: 'service2',
-          icon: 'mdi-instagram',
+          icon: 'mdi-account-details',
+          title: "Enter your Business Info",
+          description: 'Tell us more about your business. That lets us find the ideal individual, quicker than expected.'
+        },
+        {
+          id: 'service2',
+          icon: 'mdi-selection',
           title: "Select Skills",
           description: 'Choose specific keywords that highlight your expertise.'
         },
         {
           id: 'service3',
-          icon: 'mdi-youtube',
+          icon: 'mdi-book-open',
           title: "Enter your preferences",
           description: 'Select keywords based on what you are looking for in your next co-founder.'
         },
         {
           id: 'service2',
-          icon: 'mdi-instagram',
+          icon: 'mdi-robot',
           title: "AI takes charge",
           description: 'Our AI-based algorithm takes in your preferences and finds the ideal match.'
         },
         {
           id: 'service2',
-          icon: 'mdi-instagram',
+          icon: 'mdi-check-circle',
           title: "They said Yes!",
           description: 'You just got yourself a co-founder!'
         },
@@ -110,10 +116,7 @@ export default class Services extends Component {
                 <div className="pr-4 mt-4">
                   <p className="text-uppercase">About BizDateUp</p>
                   <h3>Two Perspective, One spot!</h3>
-                  <p className="text-muted mt-3">Say Hello to an AI-based algorithm that lets you connect with Co-founders, Investors, and real-world startups solutions. 
-
-THE ONLY ALGORITHM THAT HELPS YOU FIND CO-FOUNDERS, INVESTORS AND SERVICES THAT YOUR STARTUP NEEDS. POWERED WITH AI*
-</p>
+                  <p className="text-muted mt-3">Say Hello to an AI-based algorithm that lets you connect with Co-founders, Investors, and real-world startups solutions. All you have to do is to land on the platform, create your account and start exploring your professional network. </p>
                   <div className="mt-4 pt-1">
                     <Link to="#" className="btn btn-outline-primary">Read more</Link>
                   </div>

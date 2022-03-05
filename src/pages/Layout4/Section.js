@@ -41,7 +41,7 @@ class Section extends Component {
           img: Background2,
           butn: 'Invest Now',
           title:'Invest in startups you trust',
-          desc: 'Start with as low as Rs. 1000 and help those startups to stay in the game. Own a share, Interact with the community and build your portfolio.'
+          desc: 'Start with as low as  Rs. 5000 and help those startups to stay in the game. Own a share, Interact with the community and build your portfolio.'
         },
         {
           id: 101,

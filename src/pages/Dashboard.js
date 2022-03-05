@@ -5,6 +5,7 @@ import Footer from '../component/Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../src/styles.scss';
 import Contact from '../component/Contact';
+import Dashboard from "../component/Dashboard";
 
 class ContactUs extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class ContactUs extends Component {
             top={this.state.fixTop}
           />
 
-          <Contact />
+          <Dashboard />
 
           {/* Importing Footer */}
           <Footer />

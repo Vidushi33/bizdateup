@@ -35,11 +35,7 @@ export default class Pricing extends Component {
               <Col lg={6} className="offset-lg-1">
                 <div className="mt-4">
                   <h2>New Startups are joining!</h2>
-                  <p className="mt-4 text-muted">Praesent ut tincidunt massa vel facilisis dui Integer mattis quis
-                  augue in rhoncus Integer mattis enim vel eros bibendum egestas id laoreet nisi
-                  Praesent malesuada eros at bibendum eleifend Nam nec urna hendrerit interdum risus
-                  Donec faucibus quis magna sit amet laoreet Maecenas finibus semper massa in finibus est
-                            venenatis quis.</p>
+                  <p className="mt-4 text-muted">BizDateUp has been constantly expanding and upgrading to cater to the needs of new users and startups alike. We're thrilled to share the fact that new startups are getting onboard almost every week! Join the community today and let’s get going on the path to growth.</p>
 
                   {/* <div className="mt-4">
                     <Link to="#" className="btn btn-primary">Explore More</Link>
@@ -56,7 +52,8 @@ export default class Pricing extends Component {
                 <div className="title-box text-center">
                   <h3 className="title-heading mt-4">Listed startups... </h3>
                   <p className="text-muted f-17 mt-3">
-                    here all all the startups
+                  Take a look at startups that are up for you to invest, interact and learn with.
+
                   </p>
                   <img src={HomeUrl} height="15" className="mt-3" alt="" />
                 </div>
@@ -90,7 +87,7 @@ export default class Pricing extends Component {
                       <h1></h1>
                       </div>
                       <Link to={`/Deals`} className="btn-block">
-                      <Button variant="outline-primary">Read more</Button>
+                      <Button variant="outline-primary">Invest</Button>
                       </Link>
                     </Card.Body>
                   </Card>

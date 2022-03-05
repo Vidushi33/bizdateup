@@ -82,7 +82,7 @@ class Layout3 extends Component {
            <Services />
 
           {/* Importing Pricing */}
-          <Pricing />
+          {/* <Pricing /> */}
 
           {/* Importing Team */}
           {/* <Team /> */}
@@ -91,7 +91,7 @@ class Layout3 extends Component {
           {/* <Clients /> */}
 
           {/* Importing Contact Us */}
-          <Contact />
+          {/* <Contact /> */}
 
           {/* Importing Footer */}
           <Footer />

@@ -136,44 +136,44 @@ Running a startup is challenging. To cater to these issues,<br/> BizDateUp keeps
               </Col>
             </Row>
             <Row className="mt-5 pt-4">
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Pitch Deck</h4>
+                <h4 className="title-heading mt-4 p-2 text-center" style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)", borderRadius: "5px"}}>Pitch Deck</h4>
                 </div>
               </Col>
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Mentorship Sessions</h4>              
+                <h4 className="title-heading mt-4 p-2 text-center" style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)", borderRadius: "5px"}} >Mentorship Sessions</h4>              
                  </div>
               </Col>
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Legal Solutions</h4>
+                <h4 className="title-heading mt-4 p-2 text-center" style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)", borderRadius: "5px"}}>Legal Solutions</h4>
                                </div>
               </Col>
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Website and App</h4>                
+                <h4 className="title-heading mt-4 p-2 text-center" style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)", borderRadius: "5px"}}>Website and App</h4>                
                 </div>
               </Col>
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Intern & Hr recruitment</h4>                
+                <h4 className="title-heading mt-4 p-2 text-center" style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)", borderRadius: "5px"}}>Intern & Hr recruitment</h4>                
                 </div>
               </Col>
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Employee financial planning</h4>                
+                <h4 className="title-heading mt-4 p-1  text-center " style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)", borderRadius: "5px"}}>Employee financial planning</h4>                
                 </div>
               </Col>
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Talent management</h4>                
+                <h4 className="title-heading mt-4 p-2 text-center " style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)", borderRadius: "5px"}}>Talent management</h4>                
                 </div>
               </Col>
-              <Col lg={3}>
+              <Col lg={3} md={4} sm={6}>
                 <div className="client-images mt-4">
-                <h4 className="title-heading mt-4">Market consultancy</h4>                
+                <h4 className="title-heading mt-4 p-2 text-center " style = {{background: "linear-gradient(to right, #2980b9, #6dd5fa, #2990b9)",  borderRadius: "5px"}}>Market consultancy</h4>                
                 </div>
               </Col>
             </Row>

@@ -26,8 +26,9 @@ class Footer extends Component {
           child: [
             { title: "Contact", link: "/ContactUs" },
             { title: "Privacy Policy", link: "/Privacy" },
-            { title: "FAQ", link: "#" },
-            { title: "Terms of use", link: "/Terms" }
+            { title: "Refund Policy", link: "Refundpolicy" },
+            { title: "Terms of use", link: "/Terms" },
+            { title: "Risk of Investment", link: "/Risk" }
           ],
         },
       ],

@@ -47,7 +47,7 @@ export default class Clients extends Component {
           img: Img4,
           name: 'Margaret Lampley',
           designation: 'CEO',
-          description: 'The Europeananguages are members of the Same family Their separate existence is a myth For science, music, sport, etc, europe convals d feugiat egdgfet cursus tellus their languages common words.'
+          description: 'The European languages are members of the Same family Their separate existence is a myth For science, music, sport, etc, europe convals d feugiat egdgfet cursus tellus their languages common words.'
         },
       ],
     };

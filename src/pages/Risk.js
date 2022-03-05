@@ -4,7 +4,8 @@ import Navbar from '../component/Navbar/NavBar'
 import Footer from '../component/Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../src/styles.scss';
-import Contact from '../component/Contact';
+
+import Risk from "../component/Risk";
 
 class ContactUs extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class ContactUs extends Component {
             top={this.state.fixTop}
           />
 
-          <Contact />
+          <Risk />
 
           {/* Importing Footer */}
           <Footer />

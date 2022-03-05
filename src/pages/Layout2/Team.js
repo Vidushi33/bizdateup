@@ -86,8 +86,8 @@ export default class Contact extends Component {
             <Row>
               <Col lg="12">
                 <div className="title-box text-center">
-                  <h3 className="title-heading mt-4">Meet Our Team </h3>
-                  <p className="text-muted f-17 mt-3">Vivamus ac nulla ultrices laoreet neque mollis mi morbi elementum mauris sit amet arcu <br /> fringilla auctor In eleifend maximus nisi sed vulputate.</p>
+                  <h3 className="title-heading mt-4">Know the team</h3>
+                  <p className="text-muted f-17 mt-3">BizDateUp operates on the notion that great startups are run by a great team. And, thankfully we have one. You might want to take a look:</p>
                   <img src={HomeUrl} height="15" className="mt-3" alt="" />
                 </div>
               </Col>
